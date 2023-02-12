@@ -49,9 +49,9 @@ function setLogin() {
   // Add Enter key handler
   // Enable the input and the button
   address.disabled = connect.disabled = false;
-  connect.textContent = 'Connect';
+  connect.textContent = 'CONNECT';
   // Add the default address and select xxxx
-  address.value = 'roborio-xxxx-frc.local';
+  address.value = 'roborio-2614-frc.local';
   address.focus();
   address.setSelectionRange(8, 12);
 }
@@ -59,7 +59,7 @@ function setLogin() {
 connect.onclick = () => {
   window.api.sendConnect(address.value);
   address.disabled = connect.disabled = true;
-  connect.textContent = 'Connecting...';
+  connect.textContent = 'Attempting to connect...';
 };
 address.onkeydown = ev => {
   if (ev.key === 'Enter') {

@@ -46,9 +46,9 @@ function createWindow() {
     client.start((con, err) => {
 
         let connectFunc = () => {
-            console.log('Sending status');
+            console.log('Connection attempt in progress');
             mainWindow.webContents.send('connected', con);
-
+            
             // Listens to the changes coming from the client
         };
 
@@ -74,9 +74,9 @@ function createWindow() {
     });
     // When the user chooses the address of the bot than try to connect
     ipc.on('connect', (ev, address, port) => {
-        console.log(`Trying to connect to ${address}` + (port ? ':' + port : ''));
+        console.log(`Attempting to connect to ${address}` + (port ? ':' + port : ''));
         let callback = (connected, err) => {
-            console.log('Sending status');
+            console.log('Status displayed successfully');
             mainWindow.webContents.send('connected', connected);
         };
         if (port) {
@@ -113,7 +113,7 @@ function createWindow() {
     mainWindow.loadURL(`file://${__dirname}/index.html`);
     // Once the python server is ready, load window contents.
     mainWindow.once('ready-to-show', () => {
-        console.log('main window is ready to be shown');
+        console.log('Main window is ready for display.');
         mainWindow.show();
     });
 
@@ -121,7 +121,7 @@ function createWindow() {
     //mainWindow.setMenu(null);
     // Emitted when the window is closed.
     mainWindow.on('closed', () => {
-        console.log('main window closed');
+        console.log('Main window closed.');
         // Dereference the window object, usually you would store windows
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
@@ -131,7 +131,7 @@ function createWindow() {
         client.removeListener(clientDataListener);
     });
     mainWindow.on('unresponsive', () => {
-        console.log('Main Window is unresponsive');
+        console.log('Main window unresponsive!');
     });
     mainWindow.webContents.on('did-fail-load', () => {
         console.log('window failed load');
@@ -140,7 +140,7 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', () => {
-    console.log('app is ready');
+    console.log('Dashboard is now ready.');
     createWindow();
 });
 
@@ -157,7 +157,7 @@ app.on('window-all-closed', function () {
 });
 
 app.on('quit', function () {
-    console.log('Application quit.');
+    console.log('Dashboard exited.');
 });
 
 app.on('activate', function () {

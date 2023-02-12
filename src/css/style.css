@@ -25,6 +25,20 @@ button, input[type="text"], input[type="number"], .select-container, select {
     cursor: pointer;
     outline: 0;
 }
+
+
+login, button {
+    color: green;
+    background: #444;
+    border: none;
+    font-size: 14px;
+    padding: 6px 8px;
+    cursor: pointer;
+    outline: 0;
+    font-family: Verdana;
+}
+
+
 .select-container {
     padding: 0;
     display: inline-block;
@@ -151,11 +165,18 @@ aside > * {
 body.login #login {
     display: flex;
 }
-#login :disabled {
+#login button:disabled {
     opacity: 0.6;
+    font-weight: bold;
+    color: yellow;
+    
 }
 #login > * {
     height: 40px;
+}
+
+#button {
+    font-weight: bolder;
 }
 #login > button {
     margin-left: 5px;
